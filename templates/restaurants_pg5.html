@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% for i in data %}
+        <form action="/basket" method="post">
+            <p>Назва: {{ i.dish_name }}</p>
+            <p>Тип: {{ i.dish_type }}</p>
+            <p>Ціна: {{ i.cost }}</p>
+            <p>Розмір:{{ i.dish_size }}</p>
+            <p>Калорії:{{ i.calories }}</p>
+            <p>Назва ресторану:{{ i.rests_names }}</p>
+            <input type="hidden" name="dish_id" value={{i.id}} />
+            <input type="hidden" name="rest_id" value={{i.rests}} />
+        </form>
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% for i in data %}
+        <form action="/restaurants" method="post">
+        {{ i.favorite_dishes }}
+        </form>
+    {% endfor %}
+    {{ form.to_restaurants }}
+</body>
+</html>

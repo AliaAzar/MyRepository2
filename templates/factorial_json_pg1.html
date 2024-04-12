@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form id="form">
+        <p>Введіть число:</p>
+        <input type="text" name="num" id="num">
+        <p>Введіть його факторіал:</p>
+        <input type="text" name="factorial" id="factorial">
+        <input type="submit" id="submit" value="Готово!">
+    </form>
+
+    <div id="div">
+
+    </div>
+
+    <script>
+        const form = document.getElementById('form');
+        const div = document.getElementById('div');
+
+        form.addEventListener('submit', function(event){
+        event.preventDefault();
+
+        const num = document.getElementById('num').value;
+        const factorial = document.getElementById('factorial').value;
+
+        fetch(`/pg2?num=${num}&factorial=${factorial}`)
+        .then(response => response.json())
+        .then(data => {
+        div.innerHTML = `<p>${data['answer']}</p>`})
+        });
+    </script>
+</body>
+</html>

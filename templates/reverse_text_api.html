@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>Міні перегортач</h3>
+    <form id="form">
+        <p>Введіть текст, який хочете перегорнути:</p>
+        <input type="text" id="info1">
+    </form>
+
+    <div id="div">
+
+    </div>
+
+    <script>
+        const form = document.getElementById('form');
+        const div = document.getElementById('div');
+
+        form.addEventListener('submit', function(event){
+        event.preventDefault();
+
+        const info1 = document.getElementById('info1').value;
+
+        fetch(`/reverse_text?info1=${info1}`)
+        .then(response => response.json())
+        .then(data => {
+        div.innerHTML = `<p>Ваш перегорнутий текст: ${data['reverse_text']}</p>`;
+        });
+        });
+</script>
+
+</body>
+</html>

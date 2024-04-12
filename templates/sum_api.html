@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form id="form">
+        <p>Введіть перше число</p>
+        <input type="text" id="info1">
+        <p>Введіть друге число</p>
+        <input type="text" id="info2">
+        <input type="submit" value="Додати" id="btn1">
+    </form>
+
+    <div id="div">
+
+    </div>
+
+    <script>
+        const form = document.getElementById('form');
+        const div = document.getElementById('div');
+
+        form.addEventListener('submit', function(event){
+        event.preventDefault();
+
+        const info1 = document.getElementById('info1').value;
+        const info2 = document.getElementById('info2').value;
+
+        fetch(`/sum?info1=${info1}&info2=${info2}`)
+        .then(response => response.json())
+        .then(data => {
+        div.innerHTML = `<p>Сума двох ваших чисел дорівнює: ${data['suma']}</p>`;
+        });
+        });
+</script>
+
+</body>
+</html>

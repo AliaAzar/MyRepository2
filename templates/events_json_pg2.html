@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>Loginisation</h2>
+    <form id="form">
+        <p>Введіть ваше ім'я:</p>
+        <input type="text" name="name" id="username">
+
+        <p>Введіть ваш пароль:</p>
+        <input type="text" name="password" id="password">
+
+        <input type="submit" id="btn" value="Готово!">
+    </form>
+
+    <div id="div">
+
+    </div>
+
+    <script>
+        const form = document.getElementById("form");
+        const div = document.getElementById("div");
+
+        form.addEventListener("btn", function(event){
+        form.preventDefault();
+
+        const username = document.getElementById("username");
+        const password = document.getElementById("password");
+
+        fetch(`/login?username=${username}&email=${email}&password=${password}`)
+        .then(response => response.json())
+        .then(data => {
+        div.innerHTML = `<p>${data["login"]}</p>`
+        })
+        });
+    </script>
+</body>
+</html>
+</body>
+</html>

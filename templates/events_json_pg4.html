@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form id="form">
+        <h3>Створення посту</h3>
+        <p>Введіть дату створення події:</p>
+        <input type="text" name="date" id="date">
+        <p>Введіть текст події:</p>
+        <input type="text" name="text" id="text">
+        <input type="submit" id="btn" value="Готово!">
+    </form>
+
+    <div id="div">
+
+    </div>
+
+    <script>
+        const form = document.getElementById("form");
+        const div = document.getElementById("div");
+        const btn = document.getElementById("btn");
+
+        form.addEventListener("btn", function(event){
+        event.preventDefault();
+
+        const date = document.getElementById("date").value;
+        const text = document.getElementById("text").value;
+
+        fetch(`/events?date=${date}&text=${text}`)
+        .then(response => response.json)
+        .then(data => {
+        div.innerHTML = `<p></p>`
+        })
+        });
+    </script>
+</body>
+</html>
