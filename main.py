@@ -94,5 +94,9 @@ def f_3():
 def f_4():
     return render_template("cookies_e1_pg4.html")
 
+@app.route('/qwer2')
+def f_5_2():
+    return 'qwerqwer123_2'
+
 if __name__ == "__main__":
     app.run(debug=True, port=8000)
